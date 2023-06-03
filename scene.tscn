@@ -1,3 +1,35 @@
-[gd_scene format=3 uid="uid://2r8sghwr5x5n"]
+[gd_scene load_steps=6 format=3 uid="uid://2r8sghwr5x5n"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://Player.gd" id="1_wduc2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ko6wb"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ce3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwet7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qreqi"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(584, 332)
+script = ExtResource("1_wduc2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(1, 0)
+texture = SubResource("PlaceholderTexture2D_ko6wb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_8ce3i")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(417, 278)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("RectangleShape2D_rwet7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_qreqi")
