@@ -19,6 +19,7 @@ size = Vector2(20, 20)
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(584, 332)
 script = ExtResource("1_wduc2")
+metadata/type = "player"
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 modulate = Color(0, 1, 0, 1)

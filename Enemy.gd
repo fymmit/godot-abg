@@ -9,5 +9,9 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var collider = collision.get_collider()
-		if collider.has_meta("type") && collider.get_meta("type") == "wall":
+		var type = collider.get_meta("type")
+		if type == "wall":
 			velocity = velocity.bounce(collision.get_normal())
+		
+		if type == "player":
+			collider.emit_signal("kill")
