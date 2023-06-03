@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://2r8sghwr5x5n"]
+[gd_scene load_steps=8 format=3 uid="uid://2r8sghwr5x5n"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_wduc2"]
+[ext_resource type="PackedScene" uid="uid://cyynftxmge47o" path="res://wall.tscn" id="2_bm63t"]
+[ext_resource type="Script" path="res://Enemy.gd" id="2_rk3e0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ko6wb"]
 size = Vector2(20, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ce3i"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwet7"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n0ony"]
+size = Vector2(20, 20)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qreqi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8pym"]
 
 [node name="Level" type="Node2D"]
 
@@ -18,18 +21,27 @@ position = Vector2(584, 332)
 script = ExtResource("1_wduc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(1, 0)
 texture = SubResource("PlaceholderTexture2D_ko6wb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_8ce3i")
 
-[node name="Wall" type="StaticBody2D" parent="."]
-position = Vector2(417, 278)
+[node name="Wall" parent="." instance=ExtResource("2_bm63t")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-shape = SubResource("RectangleShape2D_rwet7")
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(526, 275)
+script = ExtResource("2_rk3e0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Wall"]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_qreqi")
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+modulate = Color(1, 0, 0, 1)
+texture = SubResource("PlaceholderTexture2D_n0ony")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_m8pym")
+
+[node name="Wall2" parent="." instance=ExtResource("2_bm63t")]
+position = Vector2(617, 276)
+
+[connection signal="kill" from="Player" to="Player" method="_on_kill"]
