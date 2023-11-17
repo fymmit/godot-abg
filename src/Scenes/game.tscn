@@ -1,7 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://i5khxdbbuaar"]
+[gd_scene load_steps=3 format=3 uid="uid://i5khxdbbuaar"]
 
 [ext_resource type="PackedScene" uid="uid://2r8sghwr5x5n" path="res://src/Scenes/scene.tscn" id="1_1yriv"]
+[ext_resource type="Script" path="res://src/Scripts/Game.cs" id="1_ttwff"]
 
 [node name="game" type="Node"]
+script = ExtResource("1_ttwff")
 
 [node name="Node2D" parent="." instance=ExtResource("1_1yriv")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 104.0
+offset_bottom = 87.0
+text = "Timer"
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+offset_left = 64.0
+offset_top = 104.0
+offset_right = 156.0
+offset_bottom = 130.0
+text = "GAME OVER
+Press R to restart"
