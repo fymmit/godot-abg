@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://2r8sghwr5x5n"]
+[gd_scene load_steps=4 format=3 uid="uid://2r8sghwr5x5n"]
 
 [ext_resource type="PackedScene" uid="uid://bhvst27hwgi8k" path="res://src/Scenes/player.tscn" id="1_tci3m"]
 [ext_resource type="PackedScene" uid="uid://cnvotb86mykq2" path="res://src/Scenes/wall.tscn" id="2_w6kgs"]
+[ext_resource type="PackedScene" uid="uid://cicxrac4vxtv" path="res://src/Scenes/enemy.tscn" id="3_4s51p"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,19 +12,15 @@ position = Vector2(368, 496)
 [node name="Walls" type="Node" parent="."]
 
 [node name="Ground" parent="Walls" instance=ExtResource("2_w6kgs")]
-position = Vector2(576, 80)
-scale = Vector2(14, 1)
+position = Vector2(560, 80)
+scale = Vector2(13, 1)
 
 [node name="Ground5" parent="Walls" instance=ExtResource("2_w6kgs")]
 position = Vector2(400, 464)
 scale = Vector2(3, 1)
 
-[node name="Ground6" parent="Walls" instance=ExtResource("2_w6kgs")]
-position = Vector2(528, 368)
-scale = Vector2(3, 1)
-
 [node name="Ground9" parent="Walls" instance=ExtResource("2_w6kgs")]
-position = Vector2(480, 304)
+position = Vector2(448, 304)
 scale = Vector2(2, 1)
 
 [node name="Ground7" parent="Walls" instance=ExtResource("2_w6kgs")]
@@ -31,8 +28,12 @@ position = Vector2(528, 432)
 scale = Vector2(3, 1)
 
 [node name="Ground8" parent="Walls" instance=ExtResource("2_w6kgs")]
-position = Vector2(432, 368)
-scale = Vector2(1, 5)
+position = Vector2(432, 384)
+scale = Vector2(1, 4)
+
+[node name="Ground12" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(720, 256)
+scale = Vector2(1, 8)
 
 [node name="Ground10" parent="Walls" instance=ExtResource("2_w6kgs")]
 position = Vector2(496, 480)
@@ -43,12 +44,52 @@ position = Vector2(336, 304)
 scale = Vector2(1, 15)
 
 [node name="Ground4" parent="Walls" instance=ExtResource("2_w6kgs")]
-position = Vector2(816, 304)
+position = Vector2(784, 304)
 scale = Vector2(1, 15)
 
-[node name="Ground2" parent="Walls" instance=ExtResource("2_w6kgs")]
-position = Vector2(576, 528)
-scale = Vector2(14, 1)
+[node name="Ground11" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(720, 496)
+scale = Vector2(1, 3)
 
-[node name="Wall" parent="." instance=ExtResource("2_w6kgs")]
-position = Vector2(496, 336)
+[node name="Wall2" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(688, 432)
+scale = Vector2(3, 1)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(608, 336)
+scale = Vector2(2, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(608, 240)
+scale = Vector2(6, 1)
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(496, 304)
+scale = Vector2(1, 5)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(560, 352)
+scale = Vector2(1, 4)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(656, 352)
+scale = Vector2(1, 4)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(752, 528)
+
+[node name="Ground2" parent="Walls" instance=ExtResource("2_w6kgs")]
+position = Vector2(432, 528)
+scale = Vector2(5, 1)
+
+[node name="Enemy" parent="." instance=ExtResource("3_4s51p")]
+position = Vector2(464, 336)
+InitialDirection = Vector2(0, 1)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_4s51p")]
+position = Vector2(528, 272)
+InitialDirection = Vector2(1, 0)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_4s51p")]
+position = Vector2(752, 496)
+InitialDirection = Vector2(0, -1)

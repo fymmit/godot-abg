@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cicxrac4vxtv"]
+
+[ext_resource type="Script" path="res://src/Scripts/Enemy.cs" id="1_ic6gl"]
+[ext_resource type="PackedScene" uid="uid://cq8q5rfsd3c2n" path="res://src/Scenes/deathzone.tscn" id="2_yt6n8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fk7w"]
+size = Vector2(24, 24)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_v25fw"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ic6gl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4fk7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 0, 1)
+scale = Vector2(24, 24)
+texture = SubResource("PlaceholderTexture2D_v25fw")
+
+[node name="Area2D" parent="." instance=ExtResource("2_yt6n8")]

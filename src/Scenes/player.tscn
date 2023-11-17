@@ -11,6 +11,7 @@ size = Vector2(24, 24)
 position = Vector2(550, 302)
 motion_mode = 1
 script = ExtResource("1_4gsfa")
+metadata/player = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0, 1, 1, 1)

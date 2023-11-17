@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq8q5rfsd3c2n"]
+
+[ext_resource type="Script" path="res://src/Scripts/Deathzone.cs" id="1_jv50g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_084xa"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_jv50g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_084xa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
